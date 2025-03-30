@@ -74,10 +74,9 @@ st.markdown("<h1 style='color:white; text-align:center;'>CatGPT</h1>", unsafe_al
 # Subtitle with cat gif
 st.markdown("""
 <p style='color:white; text-align:center; font-size:18px; margin: 0 auto; max-width: 500px;'>
-  Say anything to CatGPT. It will always have the purrfect answer.
+  Well? Can I help you?
 </p>
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTVlYjU3czF4ODJ4cHRsaDhrZjd4eDd3YWg4Z3J6ZTF3OHBpaXVqNCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/13borq7Zo2kulO/giphy.gif" alt="Cat filing nails" width="200" style="margin-top: 10px; border-radius: 10px;">
-""", unsafe_allow_html=True)
+<https://media4.giphy.com/media/t4wfJ082RWlig/200w.gif?cid=6c09b952amn4x29bbg8bljqlbs1ofln5djedxq54zb0b0ju0&ep=v1_gifs_search&rid=200w.gif&ct=g""", unsafe_allow_html=True)
 
 # Input field
 user_input = st.text_input("Type something", placeholder="e.g., How are you?", label_visibility="visible")
