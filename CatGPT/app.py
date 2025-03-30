@@ -72,7 +72,7 @@ st.markdown('<div class="center-wrapper">', unsafe_allow_html=True)
 st.markdown("<h1 style='color:white; text-align:center;'>CatGPT</h1>", unsafe_allow_html=True)
 
 # Subtitle with cat gif
-st.markdown("""
+st.markdown("
 <p style='color:white; text-align:center; font-size:18px; margin: 0 auto; max-width: 500px;'>
   Well? Can I help you?
 </p>
