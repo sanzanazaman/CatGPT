@@ -76,7 +76,7 @@ st.markdown("""
 <p style='color:white; text-align:center; font-size:18px; margin: 0 auto; max-width: 500px;'>
   Well? Can I help you?
 </p>
-<https://media4.giphy.com/media/t4wfJ082RWlig/200w.gif?cid=6c09b952amn4x29bbg8bljqlbs1ofln5djedxq54zb0b0ju0&ep=v1_gifs_search&rid=200w.gif&ct=g""", unsafe_allow_html=True)
+<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjFpcGcxZndnb2xydmh3d3Q0MmJlNThnMjBleGFjOGN1ajJ2YWMxbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YJ85eVpdZDy7e/giphy.gif"", unsafe_allow_html=True)
 
 # Input field
 user_input = st.text_input("Type something", placeholder="e.g., How are you?", label_visibility="visible")
