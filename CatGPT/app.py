@@ -1,4 +1,3 @@
-
 import streamlit as st
 
 # Set page config
@@ -76,7 +75,7 @@ st.markdown("""
 <p style='color:white; text-align:center; font-size:18px; margin: 0 auto; max-width: 500px;'>
   
 </p>
-<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjFpcGcxZndnb2xydmh3d3Q0MmJlNThnMjBleGFjOGN1ajJ2YWMxbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YJ85eVpdZDy7e/giphy.gif" alt="Cat filing nails" width="200" style="margin-top: 10px; border-radius: 10px;">
+<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjFpcGcxZndnb2xydmh3d3Q0MmJlNThnMjBleGFjOGN1ajJ2YWMxbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YJ85eVpdZDy7e/giphy.gif" alt="Cat filing nails" width="200" style="margin-top: 10px; margin-bottom: 30px; border-radius: 10px;">
 """, unsafe_allow_html=True)
 
 # Input field
