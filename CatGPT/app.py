@@ -15,7 +15,7 @@ if "theme" not in st.session_state:
 # Right-aligned toggle
 left_col, right_col = st.columns([8, 1])
 with right_col:
-    toggle_value = st.toggle("💡", value=(st.session_state.theme == "dark"))
+    toggle_value = st.toggle("🌙", value=(st.session_state.theme == "dark"))
 
 st.session_state.theme = "dark" if toggle_value else "light"
 is_dark = st.session_state.theme == "dark"
