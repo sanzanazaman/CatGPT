@@ -1,6 +1,6 @@
 import streamlit as st
 
-# Set page config
+# Page config
 st.set_page_config(
     page_title="CatGPT",
     page_icon="🐱",
@@ -8,82 +8,117 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Style with black and white gradient and Space Grotesk font
-st.markdown('''
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+# --- THEME STATE & TOGGLE ---
 
-    html, body, [data-testid="stAppViewContainer"], .center-wrapper {
-        font-family: 'Space Grotesk', sans-serif;
-        background: linear-gradient(135deg, #000000 0%, #ffffff 100%);
-        background-size: cover;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-position: center;
-        color: white;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-    }
+if "theme" not in st.session_state:
+    st.session_state.theme = "dark"  # default
 
-    .center-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 10vh;
-    }
+toggle_value = st.toggle("Dark mode 🌙", value=(st.session_state.theme == "dark"))
+st.session_state.theme = "dark" if toggle_value else "light"
 
-    .stTextInput > div > input {
-        background-color: #333;
-        color: white;
-        border-radius: 8px;
-        border: 1px solid #aaa;
-    }
+is_dark = st.session_state.theme == "dark"
 
-    .stTextInput > div > input:focus {
-        border: 1px solid #fff !important;
-        outline: none !important;
-        box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.4);
-    }
+# Theme-specific values
+if is_dark:
+    bg_gradient = "linear-gradient(135deg, #000000 0%, #444444 100%)"
+    card_bg = "rgba(255, 255, 255, 0.12)"
+    text_color = "#ffffff"
+    input_bg = "rgba(255, 255, 255, 0.15)"
+    input_border = "#cccccc"
+else:
+    bg_gradient = "linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%)"
+    card_bg = "rgba(255, 255, 255, 0.85)"
+    text_color = "#000000"
+    input_bg = "rgba(255, 255, 255, 0.95)"
+    input_border = "#999999"
 
-    .stButton>button {
-        background-color: white;
-        color: black;
-        font-weight: bold;
-        border-radius: 8px;
-        transition: 0.3s;
-    }
+# --- CUSTOM STYLING ---
 
-    .stButton>button:hover {
-        background-color: #e0e0e0;
-    }
+st.markdown(f"""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
 
-    .e1nzilvr5 { visibility: hidden; }
-    </style>
-''', unsafe_allow_html=True)
+html, body, [data-testid="stAppViewContainer"] {{
+    font-family: 'Space Grotesk', sans-serif;
+    background: {bg_gradient};
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: {text_color};
+}}
 
-# Start center wrapper
-st.markdown('<div class="center-wrapper">', unsafe_allow_html=True)
+/* Glassy center card */
+.glass-card {{
+    background: {card_bg};
+    padding: 40px 50px;
+    border-radius: 20px;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    text-align: center;
+    width: 420px;
+    margin: 8vh auto 0 auto;
+    color: {text_color};
+}}
 
-# Title
-st.markdown("<h1 style='color:white; text-align:center;'>CatGPT</h1>", unsafe_allow_html=True)
+/* Center title and text colors */
+h1, p, label, .stMarkdown, div, span {{
+    color: {text_color} !important;
+}}
 
-# Subtitle with cat gif
-st.markdown("""
-<p style='color:white; text-align:center; font-size:18px; margin: 0 auto; max-width: 500px;'>
-  
-</p>
-<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjFpcGcxZndnb2xydmh3d3Q0MmJlNThnMjBleGFjOGN1ajJ2YWMxbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YJ85eVpdZDy7e/giphy.gif" alt="Cat filing nails" width="200" style="margin-top: 10px; margin-bottom: 30px; border-radius: 10px;">
+/* Text input */
+.stTextInput > div > input {{
+    background-color: {input_bg};
+    color: {text_color};
+    border-radius: 8px;
+    border: 1px solid {input_border};
+}}
+
+.stTextInput > div > input:focus {{
+    border: 1px solid #000 if not {is_dark} else 1px solid #fff !important;
+    outline: none !important;
+    box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.25);
+}}
+
+/* Hide Streamlit's default menu (may change between versions) */
+.e1nzilvr5 {{ visibility: hidden; }}
+</style>
 """, unsafe_allow_html=True)
 
+# --- GLASSY WRAPPER ---
+
+st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+
+# Title
+st.markdown(
+    "<h1 style='font-size:42px; margin-bottom:10px;'>CatGPT</h1>",
+    unsafe_allow_html=True
+)
+
+# Centered cat gif
+st.markdown(
+    """
+    <div style='display:flex; justify-content:center;'>
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjFpcGcxZndnb2xydmh3d3Q0MmJlNThnMjBleGFjOGN1ajJ2YWMxbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YJ85eVpdZDy7e/giphy.gif"
+             width="200"
+             style="margin-top:10px; margin-bottom:25px; border-radius:10px;">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 # Input field
-user_input = st.text_input("Well? What do you want from me?", placeholder="e.g., How are you?", label_visibility="visible")
+user_input = st.text_input(
+    "Well? What do you want from me?",
+    placeholder="e.g., How are you?",
+    label_visibility="visible"
+)
 
 # Output
 if user_input:
     st.success("Meow.")
 
-# End center wrapper
-st.markdown('</div>', unsafe_allow_html=True) 
+# Close glass card
+st.markdown("</div>", unsafe_allow_html=True)
