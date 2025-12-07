@@ -15,7 +15,7 @@ if "theme" not in st.session_state:
 
 toggle_value = st.toggle("Dark Mode", value=(st.session_state.theme == "dark"))
 st.session_state.theme = "dark" if toggle_value else "light"
-layout="centered"
+
 
 is_dark = st.session_state.theme == "dark"
 
