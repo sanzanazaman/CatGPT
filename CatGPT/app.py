@@ -13,7 +13,7 @@ st.set_page_config(
 if "theme" not in st.session_state:
     st.session_state.theme = "dark"  # default
 
-toggle_value = st.toggle("Dark mode 🌙", value=(st.session_state.theme == "dark"))
+toggle_value = st.toggle("dark mode", value=(st.session_state.theme == "dark"))
 st.session_state.theme = "dark" if toggle_value else "light"
 
 is_dark = st.session_state.theme == "dark"
