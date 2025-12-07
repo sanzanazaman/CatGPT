@@ -13,7 +13,7 @@ st.set_page_config(
 if "theme" not in st.session_state:
     st.session_state.theme = "dark"  # default
 
-toggle_value = st.toggle("dark mode", value=(st.session_state.theme == "dark"))
+toggle_value = st.toggle("Dark Mode", value=(st.session_state.theme == "dark"))
 st.session_state.theme = "dark" if toggle_value else "light"
 
 is_dark = st.session_state.theme == "dark"
@@ -46,21 +46,7 @@ html, body, [data-testid="stAppViewContainer"] {{
     margin: 0;
     padding: 0;
     color: {text_color};
-}}
 
-/* Glassy center card */
-.glass-card {{
-    background: {card_bg};
-    padding: 40px 50px;
-    border-radius: 20px;
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-    text-align: center;
-    width: 420px;
-    margin: 8vh auto 0 auto;
-    color: {text_color};
 }}
 
 /* Center title and text colors */
