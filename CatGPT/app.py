@@ -86,4 +86,4 @@ if user_input:
     st.success("Meow.")
 
 # End center wrapper
-st.markdown('</div>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True) 
